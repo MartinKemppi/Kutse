@@ -8,6 +8,7 @@ namespace Kutsung
     {
         public void Configuration(IAppBuilder app)
         {
+            AutofacConfig.Configure();
             ConfigureAuth(app);
         }
     }

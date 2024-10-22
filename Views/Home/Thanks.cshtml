@@ -1,4 +1,4 @@
-﻿@model Kutse_App.Models.Guest
+﻿@model Kutse_App.Models.Kylaline
 
 @{
     ViewBag.Title = "Tänud!";
@@ -7,23 +7,35 @@
 <h2>Thanks</h2>
 
 <div>
-    <p> Tänan sind, @Model.Nimi</p>
+    <p> Tänan sind, @Model.Nimi, @Model.Tuleb</p>
 </div>
 
 <div>
     @if (Model.Tuleb == true)
     {
-        @:Ootan sind, @Model.Nimi , peole!
+        <div class="alert alert-success" role="alert">
+            Ootan sind, @Model.Nimi, peole!
+        </div>
         <p>
-            <img src="~/Images/Kutse.jpg" />
+            <img src="~/Images/roomusnagu.jpg" width="360" height="360" />
         </p>
-        }
+
+        <form method="post" action="@Url.Action("Tuletameelde", "Home")">
+            @Html.HiddenFor(model => model.Nimi)
+            @Html.HiddenFor(model => model.Email)
+            @Html.HiddenFor(model => model.Tuleb)
+            <button type="submit" class="btn btn-primary">Meenuta tulema</button>
+        </form>
+    }
     else
     {
-        @:Väga kurb uudis. Näeme hiljem!
+        <div class="alert alert-danger" role="alert">
+            Väga kurb uudis. Näeme hiljem!
+        </div>
         <p>
-            <img src="~/Images/Kutse.jpg" />
+            <img src="~/Images/kurbnagu.jpg" width="360" height="360" />
         </p>
     }
-    @ViewBag.Message @*ViewBag.Message -отсчет об отправке письма с приглашением *@
+
+    @ViewBag.Message
 </div>

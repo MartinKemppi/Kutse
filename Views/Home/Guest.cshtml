@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Kutse_App.Models.Kylaline>
+
+@{
+    ViewBag.Title = "Külalised";
+}
+
+<h2>Külalised</h2>
+
+
+@if (User.IsInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("Loo uut külalist", "Create")
+    </p>
+
+    <p>
+        @Html.ActionLink("Tulevad", "Tuleb") |
+        @Html.ActionLink("Ei tule", "EiTule")
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tuleb)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nimi)
+            </td>
+            <td>
+                @if (item.Tuleb == true)
+                {
+                    <text>Tulen</text>
+                }
+                else
+                {
+                    <text>Ei tule</text>
+                }
+            </td>
+            @if (User.IsInRole("admin"))
+            {
+                <td>
+                    @Html.ActionLink("Redigeeri", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Rohkem", "Rohkem") |
+                    @Html.ActionLink("Kustuta", "Delete", new { id = item.Id })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

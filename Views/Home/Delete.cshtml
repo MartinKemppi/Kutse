@@ -1,0 +1,56 @@
+﻿@model Kutse_App.Models.Kylaline
+
+@{
+    ViewBag.Title = "Kustutamine";
+}
+
+<h2>Külaliste kustutamine</h2>
+
+<h3>Kas te olete kindel, et tahate kustutada?</h3>
+<div>
+    <h4>Guest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tuleb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tuleb)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Kustuta" class="btn btn-default" /> |
+            @Html.ActionLink("Tagasi külaliste lehele", "Guest")
+        </div>
+    }
+</div>

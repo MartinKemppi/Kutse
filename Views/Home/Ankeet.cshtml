@@ -1,17 +1,35 @@
-﻿@model Kutse_App.Models.Guest
+﻿@model Kutse_App.Models.Kylaline
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
-    <p> Sisesta nimi: @Html.TextBoxFor(x => x.Nimi)</p>
-    <p> Sisesta email: @Html.TextBoxFor(x => x.Email)</p>
-    <p> Sisesta telefon: @Html.TextBoxFor(x => x.Tel)</p>
-    <p>
-        Sinu valik:
+
+    <div class="form-group">
+        <label for="Nimi">Sisesta nimi:</label>
+        @Html.TextBoxFor(x => x.Nimi, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Sisesta email:</label>
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="Tel">Sisesta telefon:</label>
+        <div class="input-group">            
+            @Html.TextBoxFor(x => x.Tel, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Tuleb">Sinu valik:</label>
         @Html.DropDownListFor(x => x.Tuleb,
-             new[]
-             {
-        new SelectListItem() {Text="Tule kindlasti!", Value=bool.TrueString},
-        new SelectListItem() {Text="Kahjuks ei saa tulla!", Value=bool.FalseString} }, "Vali siit")
-    </p>
-    <input type="submit" value="Saada vastus" />
+                                  new[]
+                                  {
+                                new SelectListItem() {Text="Tulen kindlasti!", Value=bool.TrueString},
+                                new SelectListItem() {Text="Kahjuks ei saa tulla!", Value=bool.FalseString}
+                                          },
+                                  new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Saada vastus</button>
 }

@@ -21,10 +21,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Avaleht", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Kutse peole", "Kutse", "Home")</li>
-                    <li>@Html.ActionLink("Meiest", "About", "Home")</li>
+
+                    <li>@Html.ActionLink("Meist", "About", "Home")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Kutse peole", "Kutse", "Home")</li>
+                        <li>@Html.ActionLink("Peod", "Peod", "Home")</li>
+                        <li>@Html.ActionLink("Registreerimine peole", "RegistreeritudKylalisedPeol", "Home")</li>
+                    }
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li>@Html.ActionLink("Kutse peole", "Kutse", "Home")</li>
+                        <li>@Html.ActionLink("Külalised", "Guest", "Home")</li>
+                        <li>@Html.ActionLink("Peod", "Peod", "Home")</li>
+                        <li>@Html.ActionLink("Registreerimine peole", "RegistreeritudKylalisedPeol", "Home")</li>
+                        <li>@Html.ActionLink("Rollid", "Roll", "Home")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +47,61 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Pidu</p>
+            @{
+                string kuu = DateTime.Now.ToString("MMMM");
+                string pidu = "";
+
+                if (kuu == "jaanuar")
+                {
+                    pidu = "Uue aasta";
+                }
+                else if (kuu == "veebruar")
+                {
+                    pidu = "Valentiini päeva";
+                }
+                else if (kuu == "märts")
+                {
+                    pidu = "Naiste päeva";
+                }
+                else if (kuu == "aprill")
+                {
+                    pidu = "Raha päeva";
+                }
+                else if (kuu == "mai")
+                {
+                    pidu = "Töörahva";
+                }
+                else if (kuu == "juuni")
+                {
+                    pidu = "Lastekaitse päev";
+                }
+                else if (kuu == "juuli")
+                {
+                    pidu = "Ülemaailmne koertepäeva";
+                }
+                else if (kuu == "august")
+                {
+                    pidu = "Arbuusi päeva";
+                }
+                else if (kuu == "september")
+                {
+                    pidu = "Rahvusvaheline šokolaadipäeva";
+                }
+                else if (kuu == "oktoober")
+                {
+                    pidu = "Ülemaailmne kakao ja šokolaadi päeva";
+                }
+                else if (kuu == "november")
+                {
+                    pidu = "Musta reede";
+                }
+                else if (kuu == "detsember")
+                {
+                    pidu = "Jõulude";
+                }
+
+                <p>&copy; @DateTime.Now.Year  @kuu - @pidu pidu</p>
+            }
         </footer>
     </div>
 

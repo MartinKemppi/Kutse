@@ -1,9 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Kutsung.Models;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Kutse_App.Models
 {
-    public class Guest
+    public class Kylaline
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Sisesta nimi")]
         public string Nimi { get; set; }
 
@@ -17,5 +21,6 @@ namespace Kutse_App.Models
 
         [Required(ErrorMessage = "Sisesta valik")]
         public bool? Tuleb { get; set; }
+        public List<KylalinePeole> RegistreeritudPeod { get; set; }
     }
 }

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Kutsung.Models.Peo>
+
+@{
+    ViewBag.Title = "Peod";
+}
+
+<h2>Peod</h2>
+
+@if (User.IsInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("Loo uus pidu", "Loo")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pidu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kuupaev)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pidu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kuupaev)
+            </td>
+            @if (User.IsInRole("admin"))
+            {
+                <td>
+                    @Html.ActionLink("Redigeeri", "Redigeeri", new { id = item.Id }) |
+                    @Html.ActionLink("Kustuta", "Kustuta", new { id = item.Id })
+                </td>
+            }
+
+        </tr>
+    }
+
+</table>

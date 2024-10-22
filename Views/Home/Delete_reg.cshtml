@@ -1,0 +1,40 @@
+﻿@model Kutsung.Models.KylalinePeole
+
+@{
+    ViewBag.Title = "Kustutamine";
+}
+
+<h2>Kustutamine registreeritud külalist</h2>
+
+<h3>Kas te olete kindel, et tahate kustutada?</h3>
+<div>
+    <h4>KylalinePeole</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kylaline.Nimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kylaline.Nimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peo.Pidu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peo.Pidu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Kustuta" class="btn btn-default" /> |
+            @Html.ActionLink("Tagasi registreerimise lehele", "RegistreeritudKylalisedPeol")
+        </div>
+    }
+</div>

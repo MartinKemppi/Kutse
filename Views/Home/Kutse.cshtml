@@ -1,21 +1,66 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Tere tulemast peole! Kutse";
 }
 
-<h2>Kutse</h2>
+@{
+    var kuupaev = DateTime.Now;
+    var kuu = kuupaev.Month;
+    var imageSrc = "";
 
-<div class="jumbotron">
-    <h1> @ViewBag.Greeting, Kallis sõber! "</h1>
+    switch (kuu)
+    {
+        case 1:  // Jan
+            imageSrc = "~/Images/uusaasta.jpeg";
+            break;
+        case 2:  // Veb
+            imageSrc = "~/Images/valentine.jpg";
+            break;
+        case 3:  // Mar
+            imageSrc = "~/Images/sokolaadipaev.jpg";
+            break;
+        case 4:  // Apr
+            imageSrc = "~/Images/raha.jpg";
+            break;
+        case 5:  // Mai
+            imageSrc = "~/Images/esimenemai.jpg";
+            break;
+        case 6:  // Jun
+            imageSrc = "~/Images/lastekaitsepaev.jpg";
+            break;
+        case 7:  // Jul
+            imageSrc = "~/Images/koertepaev.jpg";
+            break;
+        case 8:  // Aug
+            imageSrc = "~/Images/arvuusipaev.jpg";
+            break;
+        case 9:  // Sept
+            imageSrc = "~/Images/sokolaadipaev.jpg";
+            break;
+        case 10:  // Okt
+            imageSrc = "~/Images/kakao.jpg";
+            break;
+        case 11:  // Nov
+            imageSrc = "~/Images/mustreede.png";
+            break;
+        case 12:  // Dets
+            imageSrc = "~/Images/jouludjpg.jpg";
+            break;
+    }
 
+    ViewBag.Title = "Tere tulemast peole! Kutse";
+}
+
+<h2 class="text-center">Kutse</h2>
+
+<div class="jumbotron text-center">
+    <h1 class="display-4"> @ViewBag.Greeting, Kallis sõber!</h1>
+    <p class="lead">Ootan sind oma peole! Tule kindlasti!!! Ootan sind!</p>
 </div>
 
-<div>
-    @ViewBag.Message
-    <img src="~/Images/Kutse.jpg" />
-
+<div class="text-center">    
+    <img src="@Url.Content(imageSrc)" class="img-thumbnail" alt="Kutse pilt" width="400" height="400" />
 </div>
-<div>
-    @Html.ActionLink("Vastan", "Ankeet", "Ankeet", new { @class = "btn btn-primary" })
 
+<div class="text-center mt-4">
+    @Html.ActionLink("Vastan", "Ankeet", "Ankeet", new { @class = "btn btn-primary btn-lg" })
 </div>

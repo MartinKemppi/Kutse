@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Kutsung.Models.KylalinePeole>
+
+@{
+    ViewBag.Title = "RegistreeritudKylalisedPeol";
+}
+
+<h2>RegistreeritudKylalisedPeol</h2>
+
+<p>
+    @Html.ActionLink("Loo uus registreerimine peole", "Create_reg")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kylaline.Nimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peo.Pidu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kylaline.Nimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peo.Pidu)
+        </td>
+        @if (User.IsInRole("admin"))
+        {
+            <td>
+                @Html.ActionLink("Redigeeri", "Edit_reg", new { id = item.KylalinePeoleId }) |
+                @*@Html.ActionLink("Rohkem", "Rohkem_regpeod") |*@
+                @Html.ActionLink("Kustuta", "Delete_reg", new { id = item.KylalinePeoleId })
+            </td>
+        }
+    </tr>
+}
+
+</table>

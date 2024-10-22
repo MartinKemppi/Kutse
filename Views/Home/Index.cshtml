@@ -2,30 +2,43 @@
     ViewBag.Title = "Pealeht";
 }
 
-<div class="jumbotron">
-    <h1>Pidu</h1>
-    <p class="lead">Pidu on sotsiaalne kogunemine, mis oli algselt mõeldud tähistamiseks ja meelelahutuseks.
-    Kuigi peol on mõned ühised jooned usuliste ja hooajaliste festivalidega, väljendab termin "pidu" tavaliselt väiksemat sorti kogunemist isiklikel, rohkem kui kultuurilistel, põhjustel, isegi kui põhjus on lihtsalt lustimissoov. </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="jumbotron text-center">
+    <h1 class="display-3">Tere tulemast Pidule!</h1>
+    <p class="lead">Pidu on sotsiaalne kogunemine, mis on mõeldud tähistamiseks ja meelelahutuseks. Kutsutud olete kõik, kes soovivad lõbutseda ja pidu nautida.</p>
+    <p><a href="https://et.wikipedia.org/wiki/Eesti_riiklikud_t%C3%A4htp%C3%A4evad" class="btn btn-primary btn-lg">Rohkem teavet &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Dressikood</h2>
-        <p>
-            Riietuskood on reeglite kogum, mis on sageli kirjas selle kohta, milliseid riideid peavad kandma inimrühmad.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Dressikood</h2>
+                <p class="card-text">Riietuskood on reeglite kogum, mis määrab, milliseid riideid peate kandma. Valige stiilne riietus, et lisada elegantsi meie peole.</p>
+                <a href="https://en.wikipedia.org/wiki/Dress_code#:~:text=A%20dress%20code%20is%20a,purpose%2C%20circumstances%2C%20and%20occasions." class="btn btn-secondary">Rohkem teavet &raquo;</a>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>Mis toimub?</h2>
-        <p>Peod annavad võimalusi mitut liiki sotsiaalseks suhtluseks, sõltudes osavõtjatest ja nende arusaamadest vastuvõetavast käitumisest vastavale sündmusele.
-        Tulemusena kalduvad need tugevdama kultuurilisi ja/või kontra-kultuurilisi nõudeid, kuigi mõnikord juhtub see, andes pool-vastuvõetavat sotsiaalset konteksti, et rikkuda mõnda neist nõuetest. </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Mis toimub?</h2>
+                <p class="card-text">Peod pakuvad võimalusi erinevateks sotsiaalseteks suhtlusvormideks. Ootame, et jagate naeru, rõõmu ja head seltskonda.</p>
+                
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>Keda ootame?</h2>
-        <p>Kõike kellel on kutse!</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Keda ootame?</h2>
+                <p class="card-text">Ootame kõiki, kes on saanud kutse meie pidule osalema. Tehke kindlasti kindlaks, et olete registreerunud!</p>
+                
+            </div>
+        </div>
     </div>
+</div>
+
+<div class="text-center mt-4">
+    @ViewBag.Message
+    <img src="~/Images/Kutse.jpg" class="img-fluid" alt="Kutse pilt" />
 </div>
