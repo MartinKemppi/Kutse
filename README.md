@@ -1,10 +1,10 @@
 # $\color{#1589F0}Meenutaja$
 
 ## $\color{#1589F0}Sisukord$
-1. [Projekti kohta](https://github.com/MartinKemppi/Kutse/edit/master/README.md#color1589f0peode-pealeht)
-2. [Kutse peole](https://github.com/MartinKemppi/Kutse/edit/master/README.md#color1589f0tagasiside-peodest)
-3. [Registreerimine peole](https://github.com/MartinKemppi/Kutse/edit/master/README.md#color1589f0registreerimine-peole)
-4. [Kasutajad](https://github.com/MartinKemppi/Kutse/edit/master/README.md#color1589f0kasutajad-ja-nende-lehed)
+1. [Projekti kohta](https://github.com/MartinKemppi/Kutse#color1589f0peode-pealeht)
+2. [Kutse peole](https://github.com/MartinKemppi/Kutse#color1589f0tagasiside-peodest)
+3. [Registreerimine peole](https://github.com/MartinKemppi/Kutse#color1589f0registreerimine-peole)
+4. [Kasutajad](https://github.com/MartinKemppi/Kutse#color1589f0kasutajad-ja-nende-lehed)
 
 ## $\color{#1589F0}Peode pealeht$
 Pealel näeme peodega seotud veebileht, kus me võime registreerida või logida sisse.
