@@ -32,10 +32,8 @@
                     }
                     @if (User.IsInRole("admin"))
                     {
-                        <li>@Html.ActionLink("Kutse peole", "Kutse", "Home")</li>
                         <li>@Html.ActionLink("Külalised", "Guest", "Home")</li>
-                        <li>@Html.ActionLink("Peod", "Peod", "Home")</li>
-                        <li>@Html.ActionLink("Registreerimine peole", "RegistreeritudKylalisedPeol", "Home")</li>
+                        <li>@Html.ActionLink("Peod", "Peod", "Home")</li>                    
                         <li>@Html.ActionLink("Rollid", "Roll", "Home")</li>
                     }
                 </ul>
