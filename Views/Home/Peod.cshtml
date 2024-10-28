@@ -4,43 +4,40 @@
     ViewBag.Title = "Peod";
 }
 
-<h2>Peod</h2>
+<h2 class="text-center" style="color: #007bff; font-weight: bold; margin-bottom: 20px;">@ViewBag.Title</h2>
 
 @if (User.IsInRole("admin"))
 {
     <p>
-        @Html.ActionLink("Loo uus pidu", "Loo")
+        @Html.ActionLink("Loo uus pidu", "Loo", null, new { @class = "btn btn-success", style = "margin-bottom: 20px;" })
     </p>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Pidu)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kuupaev)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pidu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kuupaev)
-            </td>
+            <th>@Html.DisplayNameFor(model => model.Pidu)</th>
+            <th>@Html.DisplayNameFor(model => model.Kuupaev)</th>
             @if (User.IsInRole("admin"))
             {
-                <td>
-                    @Html.ActionLink("Redigeeri", "Redigeeri", new { id = item.Id }) |
-                    @Html.ActionLink("Kustuta", "Kustuta", new { id = item.Id })
-                </td>
+                <th>Tegevused</th>
             }
-
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Pidu)</td>
+                <td>@Html.DisplayFor(modelItem => item.Kuupaev)</td>
+                @if (User.IsInRole("admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Redigeeri", "Redigeeri", new { id = item.Id }, new { @class = "btn btn-warning btn-sm", style = "margin-right: 5px;" })
+                        @Html.ActionLink("Kustuta", "Kustuta", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
 </table>

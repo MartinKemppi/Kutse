@@ -3,6 +3,39 @@
     ViewBag.Title = "Roll";
 }
 
+<style>
+    body {
+        font-family: Arial, sans-serif; 
+        background-color: #f8f9fa; 
+        color: #333; 
+        padding: 20px; 
+    }
+
+    h2 {
+        color: #007bff; 
+        font-weight: bold; 
+        margin-bottom: 20px; 
+    }
+
+    .role-list {
+        list-style-type: none; 
+        padding: 0; 
+    }
+
+        .role-list p {
+            background-color: #fff; 
+            border: 1px solid #ddd; 
+            border-radius: 0.25rem; 
+            padding: 10px; 
+            margin: 5px 0; 
+            transition: background-color 0.3s; 
+        }
+
+            .role-list p:hover {
+                background-color: #e9ecef; 
+            }
+</style>
+<br />
 <h2>Roll</h2>
 
 @foreach (var role in Model)

@@ -1,42 +1,43 @@
 ﻿@model IEnumerable<Kutsung.Models.KylalinePeole>
 
 @{
-    ViewBag.Title = "RegistreeritudKylalisedPeol";
+    ViewBag.Title = "Registreeritud Külalised Peol";
 }
 
-<h2>RegistreeritudKylalisedPeol</h2>
+<h2 class="text-center" style="color: #007bff; font-weight: bold; margin-bottom: 20px;">@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Loo uus registreerimine peole", "Create_reg")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Kylaline.Nimi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Peo.Pidu)
-        </th>
-        <th></th>
-    </tr>
+@if (User.IsInRole("admin"))
+{
+    <p>
+        @Html.ActionLink("Loo uus registreerimine peole", "Create_reg", null, new { @class = "btn btn-success", style = "margin-bottom: 20px;" })
+    </p>
+}
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kylaline.Nimi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Peo.Pidu)
-        </td>
-        @if (User.IsInRole("admin"))
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Kylaline.Nimi)</th>
+            <th>@Html.DisplayNameFor(model => model.Peo.Pidu)</th>
+            @if (User.IsInRole("admin"))
+            {
+                <th>Tegevused</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
         {
-            <td>
-                @Html.ActionLink("Redigeeri", "Edit_reg", new { id = item.KylalinePeoleId }) |
-                @*@Html.ActionLink("Rohkem", "Rohkem_regpeod") |*@
-                @Html.ActionLink("Kustuta", "Delete_reg", new { id = item.KylalinePeoleId })
-            </td>
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Kylaline.Nimi)</td>
+                <td>@Html.DisplayFor(modelItem => item.Peo.Pidu)</td>
+                @if (User.IsInRole("admin"))
+                {
+                    <td>
+                        @Html.ActionLink("Redigeeri", "Edit_reg", new { id = item.KylalinePeoleId }, new { @class = "btn btn-warning btn-sm", style = "margin-right: 5px;" })
+                        @Html.ActionLink("Kustuta", "Delete_reg", new { id = item.KylalinePeoleId }, new { @class = "btn btn-danger btn-sm" })
+                    </td>
+                }
+            </tr>
         }
-    </tr>
-}
-
+    </tbody>
 </table>

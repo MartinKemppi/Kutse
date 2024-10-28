@@ -4,18 +4,90 @@
     ViewBag.Title = "Külalised";
 }
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa; /* Light gray background */
+        color: #333; /* Darker text color for better contrast */
+    }
+
+    h2 {
+        color: #007bff; /* Blue color for headings */
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+        background-color: #fff; /* White background for the table */
+        border-radius: 0.5rem; /* Rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    .table th, .table td {
+        vertical-align: middle; /* Center align content in cells */
+    }
+
+    .thead-dark {
+        background-color: #343a40; /* Dark header background */
+        color: white; /* White text in header */
+    }
+
+    .btn {
+        margin-right: 10px; /* Space between buttons */
+        border-radius: 0.25rem; /* Rounded button corners */
+    }
+
+    .btn-success {
+        background-color: #28a745; /* Green background for success */
+        color: white; /* White text */
+    }
+
+    .btn-info {
+        background-color: #17a2b8; /* Light blue for info */
+        color: white; /* White text */
+    }
+
+    .btn-warning {
+        background-color: #ffc107; /* Yellow background for warnings */
+        color: black; /* Black text */
+    }
+
+    .btn-danger {
+        background-color: #dc3545; /* Red background for danger */
+        color: white; /* White text */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Blue background for primary actions */
+        color: white; /* White text */
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f2f2f2; /* Light gray for odd rows */
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #e9ecef; /* Light gray on hover */
+    }
+
+    /* Responsive styles */
+   
+    }
+</style>
+
 <h2>Külalised</h2>
 
 
 @if (User.IsInRole("admin"))
 {
     <p>
-        @Html.ActionLink("Loo uut külalist", "Create")
+        @Html.ActionLink("Loo uut külalist", "Create", null, new { @class = "btn btn-success" })
     </p>
 
     <p>
-        @Html.ActionLink("Tulevad", "Tuleb") |
-        @Html.ActionLink("Ei tule", "EiTule")
+        @Html.ActionLink("Tulevad", "Tuleb", null, new { @class = "btn btn-info ml-2" })
+        @Html.ActionLink("Ei tule", "EiTule", null, new { @class = "btn btn-warning ml-2" })
     </p>
 }
 
@@ -49,9 +121,9 @@
             @if (User.IsInRole("admin"))
             {
                 <td>
-                    @Html.ActionLink("Redigeeri", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Rohkem", "Rohkem") |
-                    @Html.ActionLink("Kustuta", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Redigeeri", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm", style = "margin-right: 5px;" })
+                    @Html.ActionLink("Rohkem", "Rohkem", new { id = item.Id }, new { @class = "btn btn-primary btn-sm", style = "margin-right: 5px;" })
+                    @Html.ActionLink("Kustuta", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             }
         </tr>
